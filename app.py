@@ -159,7 +159,7 @@ st.markdown("---")
 st.subheader("📋 Shipment Details")
 st.dataframe(filtered_df[[
     "Freight_Number", "Origin", "Destination", "Item",
-    "Quantity", "Cost", "Ship_Date", "Est_Delivery", "Status", "Ship_Method", "UPS_Tracking"
+    "Quantity", "Shipment Cost", "Ship_Date", "Est_Delivery", "Status", "Ship_Method", "UPS_Tracking"
 ]].sort_values("Ship_Date", ascending=False), use_container_width=True)
 
 st.markdown("---")
