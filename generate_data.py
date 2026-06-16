@@ -18,7 +18,8 @@ divisions = {
     "San Antonio": {"state": "TX", "lat": 29.4241, "lon": -98.4936},
 }
 
-items = ["Wire", "Cables", "Speakers", "Displays", "Screws & Bolts"]
+items = ["Wheels & Tires", "Exhaust Systems", "Suspension Kits", "Engine Parts", "Body Kits", "Electronics & Lighting"]
+ship_methods = ["Air", "Ground"]
 statuses = ["Delivered", "In Transit", "Delayed"]
 
 def generate_freight_number():
@@ -40,6 +41,7 @@ def generate_data(num_records=100):
         ship_date = fake.date_between(start_date="-90d", end_date="today")
         est_delivery = fake.date_between(start_date=ship_date, end_date="+14d")
         status = random.choice(statuses)
+        ship_method = random.choice(ship_methods)
 
         records.append({
             "Freight_Number": generate_freight_number(),
@@ -58,6 +60,7 @@ def generate_data(num_records=100):
             "Est_Delivery": est_delivery,
             "Status": status,
             "UPS_Tracking": generate_ups_tracking(),
+            "Ship_Method": ship_method,
         })
 
     return pd.DataFrame(records)
